@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+  padding-top: 10vh;
+  background-color: #A969C7;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2em;
+  height: 100vh;
+}
+
+body {
+  background-color: #fdfdfd;
+}
+
+.glow {
+  animation: glow 2.5s infinite alternate;
+}
+
+@keyframes glow {
+  to {
+      text-shadow: 0 0 0.3em rgba(115, 255, 136, 1);
+  }
+}
