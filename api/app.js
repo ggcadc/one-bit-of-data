@@ -8,7 +8,7 @@ const uri = 'YOUR_MONGODB_URI'
 //edit the schema to access the bit you need
 const bitofdata = require('./models/bitofdata')
 
-//cors resolves conflics with cross browser requests
+//cors resolves conflics with cross origin requests
 const cors = require('cors')
 
 //connect to mongodb
