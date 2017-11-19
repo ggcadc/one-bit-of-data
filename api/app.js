@@ -1,34 +1,38 @@
 const express = require('express')();
-const app = express;
 const mongoose = require('mongoose');
 
-//URI is available in atlas
-const uri = 'YOUR_MONGODB_URI'
+const app = express;
 
-//edit the schema to access the bit you need
-const bitofdata = require('./models/bitofdata')
+// URI is available in atlas for youre mongoDB
+const uri = require('./.env.local.js');
 
-//cors resolves conflics with cross origin requests
-const cors = require('cors')
+// edit the schema to access the document you are looking for
+const test = require('./models/schema');
 
-//connect to mongodb
+// cors resolves conflics with cross origin requests
+const cors = require('cors');
+
 mongoose.connect(uri, { useMongoClient: true });
 
 app.use(cors());
 
-app.get('/', function(req, res){
-    res.send('please use /api/data')
-})
+app.get('/', (req, res) => {
+  res.send('please use /api/data');
+});
 
-app.get('/api/data', function(req, res){
-    bitofdata.find(function(err, data){
-        if(err){
-            console.error(err)
-        }
-        res.json(data)
-    })
-})
+// this is your endpoint, treat it with kindness
+app.get('/api/data', (req, res) => {
+  // mongoose runs the find command using the schema we have defined and imported
+  test.find((err, data) => {
+    if (err) {
+      console.error(err);
+    }
+    return res.json(data);
+  });
+});
 
-// runs on port 3k or the process env port which allows this to work on heroku
-app.listen(process.env.PORT || 3000)
-console.log('running on port process or 3000')
+const port = process.env.PORT || 3001;
+
+app.listen(port, () => {
+  console.log(`running on ${port}`);
+});

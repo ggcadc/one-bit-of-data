@@ -1,5 +1,11 @@
-# I just need a bit of data from a mongoDB
+# I just need a bit of data from a mongoDB!
 
-I had just the same issue, and in general this is the simplest way to create a node.js api and react front end to display a single item.
+If you've ever said that phrase, youre not alone. I had just the same issue, and in general this is the simplest way to create a node.js api and react front end to display a single item. at least that ive been able to come up with. There are tons of guides on making an express server, using mongoose, connecting to an API endpoint with axios or fetch. I Struggled to find one that included all of these aspects. 
 
-the node api and react front end are seperately deployable, I have a Procfile to let heroku know that the node app needs to run as a worker and the react front end is ready to 'npm build' and deploy wherever you like. each project has their own package.json, 'npm i' the node app, and 'yarn' the react app and they should be good to customize.
+/api run
+
+    npm i
+
+/react-front-end run
+
+    yarn
